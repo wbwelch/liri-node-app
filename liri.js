@@ -7,16 +7,19 @@ var Twitter = require('twitter');
 var spotify = require('spotify');
 var request = require ('request');
 var dotenv = require('dotenv');
+
 //global variables
 var command = process.argv[2];
 
 //params
 var tParams = {screen_name: 'devtechconnect'};
+
 //constructor functions
 function Spotify(id, secret) {
 	this.id = id;
 	this.secret = secret
 };
+
 //api keys
 var spotify = new Spotify(keys.spotify.id, keys.spotify.secret);
 var client = new Twitter({
@@ -27,13 +30,16 @@ var client = new Twitter({
 });
 
 //console.log(spotify);
-//console.log(client);
 var methods = {
 	checkTweets: function() {
 		client.get('statuses/user_timeline', { screen_name: 'devtechconnect', count: 20 }, function(error, tweets, response) {
 			if (!error) {
+				//console.log(tweets);
 				for (var i = 0; i < tweets.length; i++) {
-					console.log(tweets[i].text);
+					var createdAt = tweets[i].created_at
+					var created = createdAt.substr(0, 16);
+					console.log("Date: " + created);
+					console.log("Tweet: " + tweets[i].text);
 				};
 			}
 			else {
