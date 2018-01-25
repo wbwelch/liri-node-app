@@ -74,8 +74,20 @@ var methods = {
 				console.log('Error occured: ' + err);
 				return;
 			}
-			//response
+			//data
 			console.log(data);
+			//data variables
+			var artist = ;
+			var song = ;
+			var link = ;
+			var album = ;
+			//console log response
+			console.log("============================================");
+			console.log("Artist/(s/): " + artist);
+			console.log("Song Title: " + song);
+			console.log("Preview link: " + link);
+			console.log("Album: " + album);
+			
 		})
 	},
 	//omdb method
@@ -91,7 +103,7 @@ var methods = {
 		request("http://www.omdbapi.com/?t=" + userVariable + "&y=&plot=short&apikey=trilogy", function(error, response, body) {
 			//if no error
   			if (!error && response.statusCode === 200) {
-				//variables
+				//response variables
 				var title = JSON.parse(body).Title;
 				var release = JSON.parse(body).Year;
 				var imdbRating = JSON.parse(body).imdbRating;
@@ -100,7 +112,7 @@ var methods = {
 				var language = JSON.parse(body).Language;
 				var plot = JSON.parse(body).Plot;
 				var actors = JSON.parse(body).Actors;
-				//console log responses
+				//console log response
 				console.log("============================================");
 				console.log("Title: " + title);
 				console.log("Release Year: " + release);
