@@ -19,16 +19,19 @@ var randomData = null;
 var tParams = {screen_name: 'devtechconnect'};
 
 //constructor functions
+//spotify
 //function Spotify(id, secret) {
 //	this.id = id;
 //	this.secret = secret
 //};
 
 //api key objects
-//var spotify = new Spotify({
-//	id: keys.spotify.id, 
-//	secret: keys.spotify.secret,
-//});
+//spotify
+var spotify = new Spotify({
+	id: keys.spotify.id, 
+	secret: keys.spotify.secret,
+});
+//twitter
 var client = new Twitter({
 	consumer_key: keys.twitter.consumer_key, 
 	consumer_secret: keys.twitter.consumer_secret, 
@@ -115,7 +118,10 @@ var methods = {
 				console.log("Plot: " + plot);
 				console.log("Actors: " + actors);
 				console.log("============================================");
-  			}
+  			} 
+			else {
+				console.log(error);
+			};
 		});
 	},
 	//read random text method
