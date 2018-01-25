@@ -77,17 +77,16 @@ var methods = {
 			//data
 			console.log(data);
 			//data variables
-			var artist = ;
-			var song = ;
-			var link = ;
-			var album = ;
+			var artist
+			var song
+			var link
+			var album
 			//console log response
 			console.log("============================================");
 			console.log("Artist/(s/): " + artist);
 			console.log("Song Title: " + song);
 			console.log("Preview link: " + link);
 			console.log("Album: " + album);
-			
 		})
 	},
 	//omdb method
