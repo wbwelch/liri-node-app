@@ -30,6 +30,8 @@ var client = new Twitter({
 });
 
 //console.log(spotify);
+
+//methods object
 var methods = {
 	checkTweets: function() {
 		client.get('statuses/user_timeline', { screen_name: 'devtechconnect', count: 20 }, function(error, tweets, response) {
@@ -38,6 +40,7 @@ var methods = {
 				for (var i = 0; i < tweets.length; i++) {
 					var createdAt = tweets[i].created_at
 					var created = createdAt.substr(0, 16);
+					console.log("============================================");
 					console.log("Date: " + created);
 					console.log("Tweet: " + tweets[i].text);
 				};
@@ -49,12 +52,22 @@ var methods = {
 	},
 	songInfo: function() {},
 	movieInfo: function() {},
-	randomEntry: function() {},
-	
+	randomText: function() {},
 }
 
-//print last 20 tweets
-if (command == 'my-tweets') {
-	methods.checkTweets();
+
+switch (command) {
+	case 'my-tweets':
+		methods.checkTweets();
+		break;
+	case 'spotify-this-song':
+		methods.songInfo();
+		break;
+	case 'movie-this':
+		methods.movieInfo();
+		break;
+	case 'do-what-it-says':
+		methods.randomText();
+		break;
 };
 
