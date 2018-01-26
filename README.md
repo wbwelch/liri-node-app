@@ -1,7 +1,5 @@
 # liri-node-app
 
-# Project Title
-
 Liri.js is a text verion mimicking Siri. Given text commands in node.js, Liri responds.
 
 ## Getting Started
