@@ -17,7 +17,7 @@ var randomData = null;
 var response = null;
 
 //params
-var tParams = {screen_name: 'devtechconnect'};
+var tParams = {screen_name: 'devtechconnect', count: 20 };
 
 //api key objects
 //spotify
@@ -40,7 +40,7 @@ var methods = {
 	
 	//twitter method
 	checkTweets: function() {
-		client.get('statuses/user_timeline', { screen_name: 'devtechconnect', count: 20 }, function(error, tweets, response) {
+		client.get('statuses/user_timeline', tParams, function(error, tweets, response) {
 			
 			//if no error
 			if (!error) {
@@ -147,8 +147,7 @@ var methods = {
 				for (var j = 0; j < ratings.length; j++) {
 					if (ratings[j].Source == 'Rotten Tomatoes') {
 						var rottenIndex = j;
-						console.log(console.log("Rotten Tomatoes Rating: " + ratings[rottenIndex].Value));
-						break;
+						console.log("Rotten Tomatoes Rating: " + ratings[rottenIndex].Value);
 					};
 				};
 				console.log("Produced In: " + country);
