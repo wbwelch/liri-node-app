@@ -4,7 +4,7 @@
 require("dotenv").config();
 var keys = require("./keys.js");
 var Twitter = require('twitter');
-var Spotify = require('spotify');
+var Spotify = require('node-spotify-api');
 var request = require ('request');
 var dotenv = require('dotenv');
 var fs = require('fs');
@@ -17,13 +17,6 @@ var randomData = null;
 
 //params
 var tParams = {screen_name: 'devtechconnect'};
-
-//constructor functions
-//spotify
-//function Spotify(id, secret) {
-//	this.id = id;
-//	this.secret = secret
-//};
 
 //api key objects
 //spotify
@@ -45,6 +38,7 @@ var client = new Twitter({
 var methods = {
 	//twitter method
 	checkTweets: function() {
+		console.log("test");
 		client.get('statuses/user_timeline', { screen_name: 'devtechconnect', count: 20 }, function(error, tweets, response) {
 			//if no error
 			if (!error) {
@@ -147,7 +141,10 @@ var methods = {
 			//console log response
 			console.log(randomData);
 			//run node liri.js based on text in random.txt
-			cmd.run('node liri.js "' + randomData + "'");
+			cmd.get('node liri.js ' + randomData, function(error, data) {
+				console.log(error);
+				console.log(data);
+			});
 		});
 	},
 };
