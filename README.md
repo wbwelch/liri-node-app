@@ -13,9 +13,6 @@ Download the code and any node packages. You will also need your own Spotify and
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
 
 Create .env file following this template:
 
