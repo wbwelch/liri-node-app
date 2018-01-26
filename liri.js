@@ -68,16 +68,16 @@ var methods = {
 	
 	//spotify funtion
 	songInfo: function() {
-		if (userVariable == null) {
+		if (userVariable === undefined) {
 			userVariable = "The Sign";
 		};
 		
 		spotify.search({ type: 'track', query: userVariable}, function(err, data) {
 			//response variable based on user variale
 			if (userVariable == "The Sign") {
-				for (var n = 0; n < 7; n++) {
+				for (var n = 0; n <6; n++) {
 					//ace of base version
-					var response  = data.tracks.items[6];	
+					var response  = data.tracks.items[5];	
 				};
 			}
 			else {
@@ -114,7 +114,7 @@ var methods = {
 	movieInfo: function() {
 		
 		//if no user input regarding movie title
-		if (userVariable == null) {
+		if (userVariable === undefined) {
 			console.log("============================================");
 			console.log("If you haven't watched 'Mr. Nobody,' you should: <http://www.imdb.com/title/tt0485947/>");
 			console.log("It's on Netflix!");
@@ -145,7 +145,7 @@ var methods = {
 				
 				//Rotten Tomatoes rating loop
 				for (var j = 0; j < ratings.length; j++) {
-					if (ratings[j].Source == 'Rotten Tomatoes') {
+					if (ratings[j].Source === 'Rotten Tomatoes') {
 						var rottenIndex = j;
 						console.log("Rotten Tomatoes Rating: " + ratings[rottenIndex].Value);
 					};
